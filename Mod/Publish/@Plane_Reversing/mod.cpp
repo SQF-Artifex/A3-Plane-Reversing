@@ -1,0 +1,12 @@
+name = "Plane Reversing";
+author = "SQF_Artifex";
+picture = "\ART_planeReversing\Images\plane_reverse_icon.paa";
+logoSmall = "\ART_planeReversing\Images\plane_reverse_icon.paa";
+logo = "\ART_planeReversing\Images\plane_reverse_icon.paa";
+logoOver = "\ART_planeReversing\Images\plane_reverse_icon.paa";
+actionName = "Workshop";
+action = "https://steamcommunity.com/sharedfiles/filedetails/?id=3738280404";
+tooltipOwned = "Plane Reversing - Put it in reverse Terry!";
+overview = "Plane Reversing - Put it in reverse Terry!";
+hideName = 0;
+hidePicture = 0;
