@@ -46,14 +46,22 @@ ART_fnc_initPlaneReversing = {
         'if (_shift or _ctrl or _alt) exitWith {};';
         "Bind to car reverse (S)";
         if !((_key in (actionKeys "CarBack")) or (_key == 31)) exitWith {}; 
-        "Check if player is in a plane and is the driver and is on the ground";
         if (isNull player) exitWith {};
-        if (isNull vehicle player) exitWith {};
-        if !(alive player && alive vehicle player) exitWith {}; 
-        if !(player in vehicle player) exitWith {};
-        if (player == vehicle player) exitWith {};
-        private _vehicle = vehicle player;
+        "Get vehicle object, accounting for possible remote-control by Zeus";
+        private _vehicle = objNull;
+        if (isRemoteControlling player) then {
+            _vehicle = cameraOn;
+        } else {
+            if (isNull vehicle player) exitWith {};
+            if !(alive player && alive vehicle player) exitWith {}; 
+            if !(player in vehicle player) exitWith {};
+            if (player == vehicle player) exitWith {};
+            _vehicle = vehicle player;
+        };
+        "Check if vehicle is valid";
+        if (isNull _vehicle) exitWith {};
         if (!(_vehicle isKindOf "Plane")) exitWith {};
+        "Check if vehicle is on the ground and engine is on";
         if !(isEngineOn _vehicle) exitWith {};
         if !(isTouchingGround _vehicle) exitWith {};
         "control pulse frequency";
